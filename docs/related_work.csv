@@ -1,0 +1,7 @@
+paper,year,problem,augmentation_type,target_phenomenon,evaluation_sets,metrics,claimed_contribution,overlap_with_this_study,difference_or_remaining_gap,read_in_full,search_date,search_terms,notes
+Spider,2018,cross-domain semantic parsing,,,,,,,,false,,,
+Spider-CG component alignment,2022,compositional generalization,,,,,,,,false,,,
+Dr.Spider,2023,diagnostic robustness,,,,,,,,false,,,
+Saparina and Lapata,2024,natural language variation,,,,,,,,false,,,
+AmbiQT,2023,ambiguity in text to SQL,,,,,,,,false,,,
+Distilled test suites,2020,semantic evaluation,,,,,,,,false,,,

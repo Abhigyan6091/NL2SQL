@@ -1,0 +1,11 @@
+# Use an appropriate local CUDA/CPU PyTorch wheel for your SSH machine.
+torch==2.5.1
+transformers==4.48.3
+datasets==3.2.0
+accelerate==1.3.0
+sentencepiece==0.2.0
+protobuf==5.29.3
+sqlglot==26.3.9
+PyYAML==6.0.2
+numpy==1.26.4
+safetensors==0.5.2

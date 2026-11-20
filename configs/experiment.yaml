@@ -1,0 +1,59 @@
+version: 1
+data:
+  train_files: [data/spider/train_spider.json, data/spider/train_others.json]
+  dev_file: data/spider/dev.json
+  tables_file: data/spider/tables.json
+  database_root: data/spider/database
+  dataset_version: "FILL_IN_LOCAL_SPIDER_VERSION"
+  license: "FILL_IN_LICENSE_AND_ACCESS_TERMS"
+  source: "https://github.com/taoyds/spider"
+  validation_fraction: 0.15
+  split_seed: 2026
+  near_duplicate_threshold: 0.92
+  # Databases that bridge near-duplicate questions are grouped into one split.
+  augmentation_budget: 1000
+  diagnostic_families_per_phenomenon: 50
+  diagnostic_fixture_count: 3
+  query_timeout_seconds: 5
+  query_max_rows: 100000
+model:
+  path: models/t5-small
+  revision: "FILL_IN_LOCAL_MODEL_COMMIT"
+  max_input_length: 512
+  max_target_length: 256
+  num_beams: 4
+  allow_input_truncation: false
+  # Plain T5 tokenizers cannot reliably represent every SQL comparison symbol.
+  added_tokens: ["<", "<=", "<>", ">=", "!="]
+training:
+  # A0–A3 are required. Omit A3_matched if compute cannot support the optional control.
+  conditions: [A0, A1, A2, A3, A3_matched]
+  seeds: [13, 42, 2026]
+  max_steps: 3000
+  eval_steps: 250
+  save_total_limit: 2
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  warmup_ratio: 0.06
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 4
+  dataloader_num_workers: 0
+  precision: fp32
+  early_stopping_patience: 0
+  # Fixed steps are the default fairness control; early stopping changes exposure.
+  gradient_checkpointing: false
+  report_to: []
+paths:
+  prepared: artifacts/prepared
+  candidates: artifacts/augmentation/candidates.jsonl
+  reviewed: artifacts/augmentation/reviewed.jsonl
+  validated: artifacts/augmentation/accepted.jsonl
+  diagnostics: artifacts/diagnostics
+  conditions: artifacts/conditions
+  runs: runs
+gates:
+  novelty_review: docs/novelty_review.json
+  baseline_review: docs/baseline_review.json
+  augmentation_pilot_review: docs/augmentation_pilot_review.json
+  final_evaluation_review: docs/final_evaluation_review.json

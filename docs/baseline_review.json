@@ -1,0 +1,11 @@
+{
+  "approved": false,
+  "reviewer": "",
+  "reviewed_at": "",
+  "evidence": "",
+  "pilot_run": "",
+  "validation_execution_accuracy": null,
+  "validation_sql_validity": null,
+  "error_analysis": "",
+  "baseline_is_suitable": null
+}

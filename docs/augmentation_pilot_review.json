@@ -1,0 +1,10 @@
+{
+  "approved": false,
+  "reviewer": "",
+  "reviewed_at": "",
+  "evidence": "",
+  "pilot_examples_reviewed": 0,
+  "acceptance_counts_by_type": {},
+  "semantic_quality_findings": "",
+  "generation_policy_version": "ast-catalogue-v1"
+}

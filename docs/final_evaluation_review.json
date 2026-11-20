@@ -1,0 +1,12 @@
+{
+  "approved": false,
+  "reviewer": "",
+  "reviewed_at": "",
+  "evidence": "",
+  "all_hyperparameters_selected_on_internal_validation": false,
+  "diagnostic_annotations_reviewed_before_final_predictions": false,
+  "planned_conditions": ["A0", "A1", "A2", "A3", "A3_matched"],
+  "planned_seeds": [13, 42, 2026],
+  "primary_outcome": "Official test-suite execution accuracy where supported; paired semantic correctness on controlled fixtures",
+  "hypotheses_and_analysis_plan": "docs/research_protocol.md"
+}
